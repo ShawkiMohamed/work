@@ -1,0 +1,17 @@
+.relative {
+    position: relative;
+}
+.error-texts h1 {
+    font-size: 133px;
+    font-weight: 900;
+    margin-bottom: 20px;
+}
+.error-texts h3{
+    font-weight: 700;
+    font-size: 25px;
+    margin-bottom: 20px;
+}
+.error-texts p{
+    font-size: 16px;
+    margin-bottom: 20px;
+}
