@@ -2,8 +2,11 @@
 .about-us-slider{
     height: 300px;
 
+}
+.cust-slider{
+    height: 100%;
 } 
-.about-us-slider img{
+.cust-slider img{
     width: 100%;
     height: 100%;
 } 

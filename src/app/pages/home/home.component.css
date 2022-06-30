@@ -10,11 +10,20 @@
 } 
 
 
-
-
 .cust-img{
     height: 200px;
 }
-.cust-content{
-    
+.text-dark{
+    color: #000 !important
 }
+
+.cust-slider{
+    height: 100%;
+}
+.cust-slider img{
+    width: 100% !important;
+    height: 100% !important;
+    object-fit:cover !important;
+   
+}
+

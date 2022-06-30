@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { ServicesService } from 'src/app/services.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-home',
@@ -12,6 +13,8 @@ export class HomeComponent implements OnInit {
 
 
   sliderData:Array<any>=[];
+  categoriesData:any=[];
+
   firstData:Array<any>=[];
   firstTitle:any ='';
   secondData:Array<any>=[];
@@ -20,18 +23,35 @@ export class HomeComponent implements OnInit {
   thirdTitle:any = ''
   forthData:Array<any>=[];
   forthTitle:any = ''
-  
-  constructor(private _NewsService:ServicesService) {
+  fifthData:Array<any>=[];
+  fifthTitle:any =''
 
-    _NewsService.getSliderData().subscribe( res=> {
+  baseApiPhoto:any = environment.baseApiPhoto
+  
+  constructor(private _NewsService:ServicesService) {}
+  toggleBanner(){
+    this.closeBanner = !this.closeBanner;
+  }
+
+  ngOnInit(): void {
+    this._NewsService.getSliderData().subscribe( res=> {
       this.sliderData = res;
+      
+      
+    } )
+
+
+    //categoris
+    this._NewsService.getCategorieData().subscribe( res=> {
+      this.categoriesData = res;
+      console.log(this.categoriesData)
       
       
     } )
 
     //first data
     
-    _NewsService.getLocationData().subscribe( res=> {
+    this._NewsService.getLocationData().subscribe( res=> {
       this.firstTitle = res.GetPercentageForVendors.title
       this.firstData = res.GetPercentageForVendors.data
       
@@ -39,7 +59,7 @@ export class HomeComponent implements OnInit {
     } )
 
     //second data
-    _NewsService.getLocationData().subscribe( res=> {
+    this._NewsService.getLocationData().subscribe( res=> {
       this.secondData = res.lastoffers.data
       this.secondTitle = res.lastoffers.title
       
@@ -47,7 +67,7 @@ export class HomeComponent implements OnInit {
     } )
     
     //third data
-    _NewsService.getLocationData().subscribe( res=> {
+    this._NewsService.getLocationData().subscribe( res=> {
       this.thirdData = res.MostSellItems.data
       this.thirdTitle = res.MostSellItems.title
 
@@ -57,22 +77,34 @@ export class HomeComponent implements OnInit {
 
     // forth
 
-    _NewsService.getLocationData().subscribe( res=> {
+    this._NewsService.getLocationData().subscribe( res=> {
       this.forthData = res.GetNearestBranche.data
       
       this.forthTitle = res.GetNearestBranche.title
-      console.log("forth")
-      console.log(this.forthTitle)
-      
-      
+         
+    } )
+    // test
+    this._NewsService.getLocationData().subscribe( res=> {
+      this.fifthData = res.getMostOrderedBranch.data
+      this.fifthTitle = res.getMostOrderedBranch.title
+           
     } )
 
-   }
-  toggleBanner(){
-    this.closeBanner = !this.closeBanner;
+
+
+
+
+
+    
+
+
+
   }
 
-  ngOnInit(): void {
+
+  check(event:any){
+    console.log(event)
+    console.log(event.currentTarget.id)
   }
 
 }

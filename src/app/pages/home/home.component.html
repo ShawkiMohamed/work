@@ -3,11 +3,9 @@
 <!-- slider -->
 <section class="about-us-slider swiper-container p-relative" *ngIf="sliderData[0]">
     <div class="swiper-wrapper">
-        <div class="swiper-slide slide-item" *ngFor="let item of sliderData[0].AdsSpacesprice" >
-            <img src="http://satafood.codesroots.com:3000/{{item.sliders.photo}}" class="img-fluid" alt="Banner">
-            <div class="transform-center">
-                
-            </div>
+        <div class="swiper-slide slide-item cust-slider" *ngFor="let item of sliderData[0].AdsSpacesprice" >
+            <img src="{{baseApiPhoto}}{{item.sliders.photo}}"  alt="Banner">
+            
             <div class="overlay overlay-bg"></div>
         </div>
         <!--
@@ -65,84 +63,22 @@
         <div class="row">
             <div class="col-12">
                 <div class="section-header-left">
-                    <h3 class="text-light-black header-title title">Browse by cuisine <span class="fs-14"><a
-                                routerLink="/restaurant">See all restaurant</a></span></h3>
+                    <div class="">
+                        <h3 class="float-right" >اختار قسمك المفضل </h3>
+                    </div>
                 </div>
             </div>
             <div class="col-12">
                 <div class="category-slider swiper-container">
-                    <div class="swiper-wrapper">
-                        <div class="swiper-slide">
-                            <a routerLink="/restaurant" class="categories">
-                                <div class="icon icon-parent text-custom-white bg-light-green"> <i
-                                        class="fas fa-map-marker-alt"></i>
-                                </div> <span class="text-light-black cat-name">Brooklyn</span>
-                            </a>
-                        </div>
-                        <div class="swiper-slide">
+                    <div class="swiper-wrapper" >
+                         <div class="swiper-slide col-3" *ngFor="let item of categoriesData">
                             <a routerLink="/restaurant" class="categories">
                                 <div class="icon text-custom-white bg-light-green ">
-                                    <img src="assets/img/restaurants/125x125/cuisine-1.jpg" class="rounded-circle"
+                                    <img src="{{baseApiPhoto}}{{item.photo}}" class="rounded-circle"
                                         alt="categories">
-                                </div> <span class="text-light-black cat-name">Italian </span>
+                                </div> <span class="text-light-black cat-name">{{item.name}} </span>
                             </a>
-                        </div>
-                        <div class="swiper-slide">
-                            <a routerLink="/restaurant" class="categories">
-                                <div class="icon text-custom-white bg-light-green ">
-                                    <img src="assets/img/restaurants/125x125/cuisine-2.jpg" class="rounded-circle"
-                                        alt="categories">
-                                </div> <span class="text-light-black cat-name">Thai </span>
-                            </a>
-                        </div>
-                        <div class="swiper-slide">
-                            <a routerLink="/restaurant" class="categories">
-                                <div class="icon text-custom-white bg-light-green ">
-                                    <img src="assets/img/restaurants/125x125/cuisine-3.jpg" class="rounded-circle"
-                                        alt="categories">
-                                </div> <span class="text-light-black cat-name">Chinese </span>
-                            </a>
-                        </div>
-                        <div class="swiper-slide">
-                            <a routerLink="/restaurant" class="categories">
-                                <div class="icon text-custom-white bg-light-green ">
-                                    <img src="assets/img/restaurants/125x125/cuisine-4.jpg" class="rounded-circle"
-                                        alt="categories">
-                                </div> <span class="text-light-black cat-name">Mexican </span>
-                            </a>
-                        </div>
-                        <div class="swiper-slide">
-                            <a routerLink="/restaurant" class="categories">
-                                <div class="icon text-custom-white bg-light-green ">
-                                    <img src="assets/img/restaurants/125x125/cuisine-5.jpg" class="rounded-circle"
-                                        alt="categories">
-                                </div> <span class="text-light-black cat-name">Indian </span>
-                            </a>
-                        </div>
-                        <div class="swiper-slide">
-                            <a routerLink="/restaurant" class="categories">
-                                <div class="icon text-custom-white bg-light-green ">
-                                    <img src="assets/img/restaurants/125x125/cuisine-6.jpg" class="rounded-circle"
-                                        alt="categories">
-                                </div> <span class="text-light-black cat-name">Lebanese </span>
-                            </a>
-                        </div>
-                        <div class="swiper-slide">
-                            <a routerLink="/restaurant" class="categories">
-                                <div class="icon text-custom-white bg-light-green ">
-                                    <img src="assets/img/restaurants/125x125/cuisine-7.jpg" class="rounded-circle"
-                                        alt="categories">
-                                </div> <span class="text-light-black cat-name">Japanese </span>
-                            </a>
-                        </div>
-                        <div class="swiper-slide">
-                            <a routerLink="/restaurant" class="categories">
-                                <div class="icon text-custom-white bg-light-green ">
-                                    <img src="assets/img/restaurants/125x125/cuisine-8.jpg" class="rounded-circle"
-                                        alt="categories">
-                                </div> <span class="text-light-black cat-name">American </span>
-                            </a>
-                        </div>
+                        </div> 
                     </div>
                     <!-- Add Arrows -->
                     <div class="swiper-button-next"></div>
@@ -154,22 +90,29 @@
 </section>
 <!-- Browse by category -->
 <!-- your previous order -->
-<section class="recent-order section-padding ">
-    <div class="container pb-3">
+<section class="recent-order pt-5 ">
+    <div class="container  pb-3 ">
         <div class="row">
-            <div class="col-12">
+            <div class="col-6">
                 <div class="section-header-left ">
-                    <h3 class="text-light-black header-title title"> <span class="fs-14"><a
+                    <h3 class="text-light-black header-title title "> <span class="fs-14 "><a class="fs-18 text-dark"
                                 routerLink="/orderdetails">{{firstTitle}}</a></span></h3>
                 </div>
             </div>
-            <div class="clearfix"></div>
-            <div class="col-lg-3 col-md-6 col-sm-6 cust-content" *ngFor="let item of firstData">
+            <div class="col-6">
+                <div class="section-header-left float-right">
+                    <h3 class="text-light-black header-title title"> <span class="fs-18"><a
+                        (click)="check($event)"  routerLink="/orderdetails">المزيــد</a></span></h3>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            
+            <div class="col-lg-3 col-md-6 col-sm-6 cust-content " *ngFor="let item of firstData">
                 
                 <div class="product-box mb-md-20">
                     <div class="product-img">
                         <a routerLink="/restaurant">
-                            <img src="http://satafood.codesroots.com:3000/{{item.restaurants.logo}}" class="img-fluid full-width cust-img"
+                            <img src="{{baseApiPhoto}}{{item.restaurants.logo}}" class="img-fluid full-width cust-img"
                                 alt="product-img">
                         </a>
                     </div>
@@ -247,18 +190,25 @@
     </div>
     <div class="container py-4">
         <div class="row">
-            <div class="col-12 ">
+            <div class="col-6 ">
                 <div class="section-header-left  ">
-                    <h3 class="text-light-black header-title title"> <span class="fs-14"><a
+                    <h3 class="text-light-black header-title title"> <span class="fs-18"><a class="text-dark"
                                 routerLink="/orderdetails">{{secondTitle}}</a></span></h3>
                 </div>
+            </div>
+            <div class="col-6 ">
+                <div class="section-header-left float-right">
+                    <h3 class="text-light-black header-title title"> <span class="fs-18"><a 
+                                routerLink="/orderdetails">المزيــد</a></span></h3>
+                </div>
+                <div class="clearfix"></div>
             </div>
             <div class="col-lg-3 col-md-6 col-sm-6" *ngFor="let item of secondData">
                 
                 <div class="product-box mb-md-20 ">
                     <div class="product-img">
                         <a routerLink="/restaurant">
-                            <img src="http://satafood.codesroots.com:3000/{{item.cover}}" class="img-fluid full-width cust-img"
+                            <img src="{{baseApiPhoto}}{{item.cover}}" class="img-fluid full-width cust-img"
                                 alt="product-img">
                         </a>
                     </div>
@@ -281,7 +231,7 @@
 <!-- your previous order -->
 <!-- Explore collection -->
 <!---->
-<section class="ex-collection section-padding">
+<section class="ex-collection ">
     <div class="container">
         <!--
         <div class="row">
@@ -654,14 +604,21 @@
        <app-advertisementbanner></app-advertisementbanner>
 
         
-<section class="recent-order section-padding  ">
+<section class="recent-order   ">
     <div class="container pb-3">
         <div class="row">
-            <div class="col-12">
+            <div class="col-6">
                 <div class="section-header-left ">
-                    <h3 class="text-light-black header-title title"> <span class="fs-14"><a
+                    <h3 class="text-light-black header-title title"> <span class="fs-18"><a class="text-dark"
                                 routerLink="/orderdetails">{{thirdTitle}}</a></span></h3>
                 </div>
+            </div>
+            <div class="col-6">
+                <div class="section-header-left float-right ">
+                    <h3 class="text-light-black header-title title"> <span class="fs-18"><a
+                                routerLink="/orderdetails">المزيــد</a></span></h3>
+                </div>
+                <div class="clearfix"></div>
             </div>
             <div class="clearfix"></div>
             <div class="col-lg-3 col-md-6 col-sm-6 cust-content pb-3" *ngFor="let item of thirdData">
@@ -669,7 +626,7 @@
                 <div class="product-box mb-md-20">
                     <div class="product-img">
                         <a routerLink="/restaurant">
-                            <img src="http://satafood.codesroots.com:3000/{{item.menu_categories_items.photo}}" class="img-fluid full-width cust-img"
+                            <img src="{{baseApiPhoto}}{{item.menu_categories_items.photo}}" class="img-fluid full-width cust-img"
                                 alt="product-img">
                         </a>
                     </div>
@@ -691,11 +648,18 @@
     <!--forth-->
     <div class="container pb-3">
         <div class="row">
-            <div class="col-12">
+            <div class="col-6">
                 <div class="section-header-left ">
-                    <h3 class="text-light-black header-title title"> <span class="fs-14"><a
+                    <h3 class="text-light-black header-title title"> <span class="fs-18"><a class="text-dark"
                                 routerLink="/orderdetails">{{forthTitle}}</a></span></h3>
                 </div>
+            </div>
+            <div class="col-6">
+                <div class="section-header-left float-right ">
+                    <h3 class="text-light-black header-title title"> <span class="fs-18"><a
+                                routerLink="/orderdetails">المزيــد</a></span></h3>
+                </div>
+                <div class="clearfix"></div>
             </div>
             <div class="clearfix"></div>
             <div class="col-lg-3 col-md-6 col-sm-6 cust-content pb-3" *ngFor="let item of forthData">
@@ -703,7 +667,7 @@
                 <div class="product-box mb-md-20">
                     <div class="product-img">
                         <a routerLink="/restaurant">
-                            <img src="http://satafood.codesroots.com:3000/{{item.cover}}" class="img-fluid full-width cust-img"
+                            <img src="{{baseApiPhoto}}{{item.cover}}" class="img-fluid full-width cust-img"
                                 alt="product-img">
                         </a>
                     </div>
@@ -1064,6 +1028,56 @@
         </div>
         -->
         <app-advertisementbanner1></app-advertisementbanner1>
+
+        <section class="recent-order pt-3  ">
+
+            <!--fifth-->
+            <div class="container pb-3">
+                <div class="row">
+                    <div class="col-6">
+                        <div class="section-header-left ">
+                            <h3 class="text-light-black header-title title"> <span class="fs-18"><a class="text-dark"
+                                        routerLink="/orderdetails">{{fifthTitle}}</a></span></h3>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="section-header-left float-right ">
+                            <h3 class="text-light-black header-title title"> <span class="fs-18"><a
+                                        routerLink="/orderdetails">المزيــد</a></span></h3>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="clearfix"></div>
+                    <div class="col-lg-3 col-md-6 col-sm-6 cust-content pb-3" *ngFor="let item of fifthData">
+                        <div *ngIf="item.branches.restaurant != null">
+                            <div class="product-box mb-md-20">
+                                <div class="product-img">
+                                    <a routerLink="/restaurant">
+                                        <img src="{{baseApiPhoto}}{{item.branches.restaurant.logo}}" class="img-fluid full-width cust-img"
+                                            alt="product-img">
+                                    </a>
+                                </div>
+                                <div class="product-caption" >
+                                    <h5 ><a routerLink="/restaurant" class="text-light-black float-right ">{{item.branches.restaurant.name}}</a></h5>
+                                    <br>
+                                    <h6 class=" product-title text-light-black float-right">{{item.branches.name}}</h6>
+                                    <div class="clearfix"></div>
+                                    
+                                    <div class="product-btn">
+                                        <a routerLink="/orderdetails"
+                                            class="btn-first white-btn full-width text-light-green fw-600">Track Order</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+
+            
+            
+        </section>
         
         <!--
         <div class="row">

@@ -17,6 +17,10 @@ export class ServicesService {
     return this.http.get("http://satafood.codesroots.com:3000/api/MobileMainPage/GetMainSliders")
   }
 
+  getCategorieData(){
+    return this.http.get("http://satafood.codesroots.com:3000/api/Categories/index")
+  }
+
   data= {
     "googleId": "ChIJef3FqvY-WBQRbhlVEGBse6A"
     }
