@@ -35,7 +35,7 @@ const routes: Routes = [
   { path: 'blog-details', component: BlogdetailsComponent },
   { path: 'ex-deals', component: ExdealsComponent },
   { path: 'about', component: AboutComponent },
-  { path: 'restaurant', component: RestaurantComponent },
+  { path: 'restaurant/:id', component: RestaurantComponent },
   { path: 'restaurant-style-1', component: Restaurantstyle1Component },
   { path: 'restaurant-style-2', component: Restaurantstyle2Component },
   { path: 'add-restaurant', component: AddrestaurantComponent },

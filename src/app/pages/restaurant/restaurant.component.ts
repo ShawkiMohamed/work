@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 
+
+import { ActivatedRoute } from '@angular/router';
+import { ServicesService } from 'src/app/services.service';
+import { environment } from 'src/environments/environment';
+
 @Component({
   selector: 'app-restaurant',
   templateUrl: './restaurant.component.html',
@@ -7,9 +12,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RestaurantComponent implements OnInit {
 
-  constructor() { }
+  
+  id:any
+
+  
+
+  constructor( private route:ActivatedRoute , private service:ServicesService) { 
+    
+  }
 
   ngOnInit(): void {
+    this.id = this.route.snapshot.paramMap.get("id")
+
+    
+
   }
 
 }
+ 

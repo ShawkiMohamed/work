@@ -37,14 +37,13 @@ export class HomeComponent implements OnInit {
     this._NewsService.getSliderData().subscribe( res=> {
       this.sliderData = res;
       
-      
     } )
 
 
     //categoris
     this._NewsService.getCategorieData().subscribe( res=> {
       this.categoriesData = res;
-      console.log(this.categoriesData)
+      
       
       
     } )
@@ -54,6 +53,7 @@ export class HomeComponent implements OnInit {
     this._NewsService.getLocationData().subscribe( res=> {
       this.firstTitle = res.GetPercentageForVendors.title
       this.firstData = res.GetPercentageForVendors.data
+     
       
       
     } )
@@ -102,9 +102,6 @@ export class HomeComponent implements OnInit {
   }
 
 
-  check(event:any){
-    console.log(event)
-    console.log(event.currentTarget.id)
-  }
+  
 
 }

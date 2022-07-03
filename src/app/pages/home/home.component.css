@@ -9,6 +9,32 @@
     height: 100%;
 } 
 
+.colBlackLight{
+    color: #6b6b83;
+}
+.offer{
+    background-color: #ffc107;
+    text-align: center;
+    color: orangered;
+    border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+}
+.price{
+    font-size: 14px;
+    color: #32fd4b;
+}
+
+.img-radius{
+    
+   
+}
+
+
+
+
 
 .cust-img{
     height: 200px;

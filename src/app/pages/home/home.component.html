@@ -102,28 +102,28 @@
             <div class="col-6">
                 <div class="section-header-left float-right">
                     <h3 class="text-light-black header-title title"> <span class="fs-18"><a
-                        (click)="check($event)"  routerLink="/orderdetails">المزيــد</a></span></h3>
+                          routerLink="/listview">عرض الكل</a></span></h3>
                 </div>
                 <div class="clearfix"></div>
             </div>
             
             <div class="col-lg-3 col-md-6 col-sm-6 cust-content " *ngFor="let item of firstData">
                 
-                <div class="product-box mb-md-20">
+                <div class="product-box mb-md-20" routerLink="/restaurant/{{item.id}}">
                     <div class="product-img">
-                        <a routerLink="/restaurant">
-                            <img src="{{baseApiPhoto}}{{item.restaurants.logo}}" class="img-fluid full-width cust-img"
+                        <a >
+                            <img src="{{baseApiPhoto}}{{item.restaurants.cover}}" class="img-fluid full-width cust-img"
                                 alt="product-img">
                         </a>
                     </div>
                     <div class="product-caption">
+                        
                         <h5 ><a routerLink="/restaurant" class="text-light-black float-right ">{{item.restaurants.name}}</a></h5>
                         <div class="clearfix"></div>
+                        <p class="colBlackLight d-inline float-right" *ngFor="let test of item.restaurants.cuisines">{{test.name}}-</p>
+                        <div class="clearfix"></div>
                         
-                        <div class="product-btn">
-                            <a routerLink="/orderdetails"
-                                class="btn-first white-btn full-width text-light-green fw-600">Track Order</a>
-                        </div>
+                        
                     </div>
                 </div>
             </div>
@@ -199,13 +199,13 @@
             <div class="col-6 ">
                 <div class="section-header-left float-right">
                     <h3 class="text-light-black header-title title"> <span class="fs-18"><a 
-                                routerLink="/orderdetails">المزيــد</a></span></h3>
+                                routerLink="/orderdetails">عرض الكل</a></span></h3>
                 </div>
                 <div class="clearfix"></div>
             </div>
             <div class="col-lg-3 col-md-6 col-sm-6" *ngFor="let item of secondData">
                 
-                <div class="product-box mb-md-20 ">
+                <div class="product-box mb-md-20 " >
                     <div class="product-img">
                         <a routerLink="/restaurant">
                             <img src="{{baseApiPhoto}}{{item.cover}}" class="img-fluid full-width cust-img"
@@ -214,14 +214,10 @@
                     </div>
                     <div class="product-caption ">
                         <h5 ><a routerLink="/restaurant" class="text-light-black float-right ">{{item.name}}</a></h5>
-                        <br>
-                        <h6 class=" product-title text-light-black float-right">{{item.description}}</h6>
-                        
                         <div class="clearfix"></div>
-                        <div class="product-btn">
-                            <a routerLink="/orderdetails"
-                                class="btn-first white-btn full-width text-light-green fw-600">Track Order</a>
-                        </div>
+                        <p class="colBlackLight d-inline float-right" *ngFor="let test of item.cuisines">{{test.name}}-</p>
+                        <div class="clearfix"></div>
+                        <p class="offer">{{item.description}}</p>
                     </div>
                 </div>
             </div>
@@ -616,14 +612,14 @@
             <div class="col-6">
                 <div class="section-header-left float-right ">
                     <h3 class="text-light-black header-title title"> <span class="fs-18"><a
-                                routerLink="/orderdetails">المزيــد</a></span></h3>
+                                routerLink="/orderdetails">عرض الكل</a></span></h3>
                 </div>
                 <div class="clearfix"></div>
             </div>
             <div class="clearfix"></div>
             <div class="col-lg-3 col-md-6 col-sm-6 cust-content pb-3" *ngFor="let item of thirdData">
                 
-                <div class="product-box mb-md-20">
+                <div class="product-box mb-md-20" routerLink="/restaurant/{{item.menu_categories_items.id}}" >
                     <div class="product-img">
                         <a routerLink="/restaurant">
                             <img src="{{baseApiPhoto}}{{item.menu_categories_items.photo}}" class="img-fluid full-width cust-img"
@@ -631,9 +627,10 @@
                         </a>
                     </div>
                     <div class="product-caption">
-                        <h5 ><a routerLink="/restaurant" class="text-light-black float-right ">{{item.menu_categories_items.name}}</a></h5>
-                        <br>
-                        <h6 class=" product-title text-light-black float-right">{{item.menu_categories_items.descriptions}}</h6>
+                        
+                        <h5 ><a routerLink="/restaurant" class="text-light-black float-right ">{{item.menu_categories_items.name}}</a> <span class="price">{{item.menu_categories_items.price}} L.E</span></h5>
+                        
+                        <h6 class=" product-title text-light-black float-right colBlackLight">{{item.menu_categories_items.descriptions}}</h6>
                         <div class="clearfix"></div>
                         
                         <div class="product-btn">
@@ -657,7 +654,7 @@
             <div class="col-6">
                 <div class="section-header-left float-right ">
                     <h3 class="text-light-black header-title title"> <span class="fs-18"><a
-                                routerLink="/orderdetails">المزيــد</a></span></h3>
+                                routerLink="/orderdetails">عرض الكل</a></span></h3>
                 </div>
                 <div class="clearfix"></div>
             </div>
@@ -667,20 +664,15 @@
                 <div class="product-box mb-md-20">
                     <div class="product-img">
                         <a routerLink="/restaurant">
-                            <img src="{{baseApiPhoto}}{{item.cover}}" class="img-fluid full-width cust-img"
+                            <img src="{{baseApiPhoto}}{{item.cover}}" class="img-fluid full-width cust-img img-radius"
                                 alt="product-img">
                         </a>
                     </div>
-                    <div class="product-caption">
-                        <h5 ><a routerLink="/restaurant" class="text-light-black float-right ">{{item.name}}</a></h5>
-                        <br>
-                        <h6 class=" product-title text-light-black float-right">{{item.description}}</h6>
-                        <div class="clearfix"></div>
+                    <div class="product-caption text-center border-none">
+                        <h5 ><a routerLink="/restaurant" class="text-light-black  pb-5   ">{{item.name}}</a></h5>
                         
-                        <div class="product-btn">
-                            <a routerLink="/orderdetails"
-                                class="btn-first white-btn full-width text-light-green fw-600">Track Order</a>
-                        </div>
+                        
+                        
                     </div>
                 </div>
             </div>
@@ -688,6 +680,10 @@
     </div>
     
 </section>
+
+
+
+
         <!--
         <div class="row">
             <div class="col-lg-9 col-md-8">
@@ -1053,7 +1049,7 @@
                             <div class="product-box mb-md-20">
                                 <div class="product-img">
                                     <a routerLink="/restaurant">
-                                        <img src="{{baseApiPhoto}}{{item.branches.restaurant.logo}}" class="img-fluid full-width cust-img"
+                                        <img src="{{baseApiPhoto}}{{item.branches.restaurant.cover}}" class="img-fluid full-width cust-img"
                                             alt="product-img">
                                     </a>
                                 </div>
@@ -1063,10 +1059,7 @@
                                     <h6 class=" product-title text-light-black float-right">{{item.branches.name}}</h6>
                                     <div class="clearfix"></div>
                                     
-                                    <div class="product-btn">
-                                        <a routerLink="/orderdetails"
-                                            class="btn-first white-btn full-width text-light-green fw-600">Track Order</a>
-                                    </div>
+                                    
                                 </div>
                             </div>
                         </div>

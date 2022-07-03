@@ -4,6 +4,7 @@
 
 export const environment = {
   production: false,
+  baseUrl:'http://satafood.codesroots.com:3000/api/',
   baseApiPhoto : 'http://satafood.codesroots.com:3000/'
 };
 

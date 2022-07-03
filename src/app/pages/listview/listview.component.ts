@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
+import { ServicesService } from 'src/app/services.service';
+import { environment } from 'src/environments/environment';
+
 @Component({
   selector: 'app-listview',
   templateUrl: './listview.component.html',
@@ -7,9 +10,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListviewComponent implements OnInit {
 
-  constructor() { }
+  testData:Array<any>=[];
+  baseApiPhoto:any = environment.baseApiPhoto
+
+  constructor(private service:ServicesService) { }
 
   ngOnInit(): void {
+    this.service.getMoreData().subscribe((data:any) => {
+      this.testData = data
+    })
   }
 
 }
